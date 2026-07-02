@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  holamundo:
+    build: .
+    container_name: ms-holamundo
+    ports:
+      - "5000:5000"
+    restart: always
+    logging:
+      driver: awslogs
+      options:
+        awslogs-region: us-east-1 # Cambia esto si tu cuenta Academy usa otra región
+        awslogs-group: /ec2/holamundo-logs
+        awslogs-create-group: "true"
+        awslogs-stream: ms-holamundo-stream
